@@ -1,7 +1,7 @@
 # PURPOSE: Get CSV File and make folders for each row
 
 # CREATED : 03-JUNE-2021
-# LAST EDIT : 
+# LAST EDIT : 04-JUNE-2021
 # AUTHORS : ALEXANDER ALVERO III (alveroalexander@gmail.com)
 
 import os
