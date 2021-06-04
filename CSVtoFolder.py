@@ -1,4 +1,4 @@
-# PURPOSE: Get CSV File and make folders for each row
+# PURPOSE: Get CSV File and make folders for each row(DEXCOM)
 
 # CREATED : 03-JUNE-2021
 # LAST EDIT : 04-JUNE-2021
@@ -35,7 +35,6 @@ def mkFolder(filename,folderpath):
                 y = line.replace("\n", "")
                 x = y.replace(",", " ")
                 try:
-
                     x = os.mkdir(os.path.join(folderpath, x.strip()))
                 except FileExistsError:
                     print(f'{x} already exists!')
@@ -53,5 +52,5 @@ def main():
 
         
 
-if __name__ == main():
+if __name__ == __main__:
     main()
