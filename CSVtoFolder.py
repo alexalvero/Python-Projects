@@ -5,9 +5,12 @@
 # AUTHORS : ALEXANDER ALVERO III (alveroalexander@gmail.com)
 
 import os
-import csv
+from datetime import date
 
-path = os.getcwd()
+fullpath = os.getcwd()
+date = str(date.today())
+folderpath = str(f"{fullpath}\{date}")
+
 def getFilename():
     filename = input('Filename: ')
 
@@ -17,8 +20,15 @@ def getFilename():
             return(filename)
         except ValueError:
             print('Import Valid Filename:')
+
+def todaymkFolder(date):
+    try:
+        os.mkdir(folderpath)   
+    except FileExistsError:
+        print("Folder already exist!")
+
     
-def mkFolder(filename):   
+def mkFolder(filename,folderpath):   
     try:
         with open(filename) as infile:
             for line in infile:
@@ -26,7 +36,7 @@ def mkFolder(filename):
                 x = y.replace(",", " ")
                 try:
 
-                    x = os.mkdir(os.path.join(path, x.strip()))
+                    x = os.mkdir(os.path.join(folderpath, x.strip()))
                 except FileExistsError:
                     print(f'{x} already exists!')
     except FileNotFoundError:
@@ -37,7 +47,9 @@ def mkFolder(filename):
 
 def main():
     filename = getFilename()
-    mkFolder(filename)
+    todaymkFolder(date)
+    mkFolder(filename,folderpath)
+    
 
         
 
